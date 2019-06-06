@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do veiculo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+    img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table class="table table-dark" border="0" title="Anuncio">
+                <tr>
+                    <td class="align-middle"><b>Id</b></td>
+                    <td class="align-middle"><b>Modelo</b></td>
+                    <td class="align-middle"><b>Marca</b></td>
+                    <td class="align-middle"><b>Ano</b></td>
+                    <td class="align-middle"><b>Preço</b></td>
+
+                </tr>
+                <img src="/static/images/{{ detalhes[7] }}" class="img-thumbnai"/>
+                <tr>
+                    <td class="align-middle">{{ detalhes[0] }}</td>
+                    <td class="align-middle">{{ detalhes[1] }}</td>
+                    <td class="align-middle">{{ detalhes[2] }}</td>
+                    <td class="align-middle">{{ detalhes[3] }}</td>
+                    <td class="align-middle">{{ detalhes[5] }}</td>
+                </tr>
+                <tr>
+                    <td><a class="btn btn-primary" href="/form_comprador/{{ detalhes[0] }}"><b><i>Reservar Agora!</i></b></a></td>
+                </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Comprador</title>
+</head>
+<body>
+    <form action="/save_reserva" method="post">
+            Nome:<br>
+            <input type="text" name="nome_comprador"><br>
+            CPF:<br>
+            <input type="text" name="cpf_comprador"><br>
+            <input type="hidden" name="id_carro" value="{{ id_do_carro }}">
+            <input type="submit" value="Reservar!">
+        </form>
+</body>
+</html>

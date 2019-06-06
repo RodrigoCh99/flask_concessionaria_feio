@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+    table {
+        width: 50%;
+        height: 50%;
+        text-align: center;
+        margin:auto;
+        table-layout: fixed;
+    }
+    img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+    div {
+        background-color: black;
+    }
+    body {
+        background-color: black;
+    }
+    h3 {
+        color: white;
+    }
+    </style>
+
+</head>
+<body>
+<div class="container-fluid" >
+    <div class="container">
+        <caption><h3 align="center"><i>Funcionarios:</i></h3></caption>
+        <table class="table table-dark" border="0" title="Funcionarios">
+            <tr>
+                <td><b>Id</b></td>
+                <td><b>Nome</b></td>
+                <td><b>Senha</b></td>
+            </tr>
+            {% for linha in lista_fun %}
+                <tr>
+                    <td>{{ linha[0] }}</td>
+                    <td>{{ linha[1] }}</td>
+                    <td>{{ linha[2] }}</td>
+                    <td><a  class="btn btn-secondary btn active" role="button" aria-pressed="true" href="/deletar_func/ {{ linha[0] }}">Deletar</a></td>
+                    <td><a  class="btn btn-secondary btn active" role="button" aria-pressed="true" href="/form_alter_func/ {{ linha[0] }}">Alterar</a></td>
+                </tr>
+            {% endfor %}
+                <tr>
+                    <td><a class="btn btn-primary" href="/form_func">ADD</a></td>
+                </tr>
+
+        </table>
+    </div>
+    <div class="container">
+        <caption><h3 align="center"><i>Anuncios Abertos:</i></h3></caption>
+        <table class="table table-dark" border="0" title="Anuncios">
+            <tr>
+                <td class="align-middle"><b>Id</b></td>
+                <td class="align-middle"><b>Modelo</b></td>
+                <td class="align-middle"><b>Marca</b></td>
+                <td class="align-middle"><b>Ano</b></td>
+                <td class="align-middle"><b>Reservado</b></td>
+                <td class="align-middle"><b>Preço</b></td>
+                <td class="align-middle"><b>Vip</b></td>
+                <td class="align-middle"><b>Imagem</b></td>
+
+            </tr>
+            {% for linha in lista_car %}
+                <tr>
+                    <td class="align-middle">{{ linha[0] }}</td>
+                    <td class="align-middle">{{ linha[1] }}</td>
+                    <td class="align-middle">{{ linha[2] }}</td>
+                    <td class="align-middle">{{ linha[3] }}</td>
+                    <td class="align-middle">{{ linha[4] }}</td>
+                    <td class="align-middle">{{ linha[5] }}</td>
+                    <td class="align-middle"><a href="/add_vip/{{ linha[0] }}/{{ linha[6] }}">{{ linha[6] }}</a></td>
+                    <td class="align-middle"><img src="static/images/{{ linha[7] }}" class="rounded-circle"></td>
+                    <td class="align-middle"><a class="btn btn-secondary btn active" role="button" aria-pressed="true" href="/deletar_anun/{{ linha[0] }}/{{ linha[7] }}">Deletar</a></td>
+                    <td class="align-middle"><a class="btn btn-secondary btn active" role="button" aria-pressed="true" href="/form_alter_car/{{ linha[0] }}">Alterar</a></td>
+                </tr>
+            {% endfor %}
+                <tr>
+                    <td><a class="btn btn-primary" href="/form_car">ADD</a></td>
+                </tr>
+        </table>
+    </div>
+    <div class="container">
+        <caption><h3 align="center"><i>V.i.p's:</i></h3></caption>
+        <table class="table table-dark" border="0" title="Vip's">
+            <tr>
+                <td><b>Id</b></td>
+                <td><b>Modelo</b></td>
+                <td><b>Marca</b></td>
+                <td><b>Ano</b></td>
+                <td><b>Preço</b></td>
+                <td><b>Imagem</b></td>
+            </tr>
+            {% for linha in lista_vip %}
+                <tr>
+                    <td class="align-middle">{{ linha[0] }}</td>
+                    <td class="align-middle">{{ linha[1] }}</td>
+                    <td class="align-middle">{{ linha[2] }}</td>
+                    <td class="align-middle">{{ linha[3] }}</td>
+                    <td class="align-middle">{{ linha[4] }}</td>
+                    <td class="align-middle"><img src="static/images/{{ linha[6] }}" class="rounded-circle"></td>
+                    <td class="align-middle"><a class="btn btn-secondary btn active" role="button" aria-pressed="true" href="/deletar_anun/{{ linha[0] }}/{{ linha[6] }}">Deletar</a></td>
+                    <td class="align-middle"><a class="btn btn-secondary btn active" role="button" aria-pressed="true" href="/add_vip/{{ linha[0] }}/{{ linha[5] }}">Remover</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="container">
+        <caption><h3 align="center"><i>Reservas:</i></h3></caption>
+        <table class="table table-dark" border="0" title="Vip's">
+            <tr>
+                <td><b>Nome do comprador</b></td>
+                <td><b>CPF do compador</b></td>
+                <td><b>Modelo do Carro</b></td>
+                <td><b>Marca do Carro</b></td>
+                <td><b>Preço do Carro</b></td>
+            </tr>
+            {% for linha in lista_reservas %}
+                <tr>
+                    <td class="align-middle">{{ linha[0] }}</td>
+                    <td class="align-middle">{{ linha[1] }}</td>
+                    <td class="align-middle">{{ linha[2] }}</td>
+                    <td class="align-middle">{{ linha[3] }}</td>
+                    <td class="align-middle">{{ linha[4] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<footer class="class="container-fluid">
+</footer>
+</body>
+</html>

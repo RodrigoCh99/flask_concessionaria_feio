@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+    table {
+        width: 50%;
+        height: 50%;
+        text-align: center;
+        margin:auto;
+        table-layout: fixed;
+    }
+    img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+    div {
+        background-color: black;
+    }
+    body {
+        background-color: black;
+    }
+    h3 {
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <h1 align="center" >Bem Vindo Funcionario</h1>
+<div class="container">
+        <caption><h3 align="center"><i>Reservas:</i></h3></caption>
+        <table class="table table-dark" border="0" title="reservas">
+            <tr>
+                <td><b>Nome do comprador</b></td>
+                <td><b>CPF do compador</b></td>
+                <td><b>Modelo do Carro</b></td>
+                <td><b>Marca do Carro</b></td>
+                <td><b>Preço do Carro</b></td>
+            </tr>
+            {% for linha in lista_reservas %}
+            <tr>
+                <td class="align-middle">{{ linha[1] }}</td>
+                <td class="align-middle">{{ linha[2] }}</td>
+                <td class="align-middle">{{ linha[3] }}</td>
+                <td class="align-middle">{{ linha[4] }}</td>
+                <td class="align-middle">{{ linha[5] }}</td>
+                <td><a  class="btn btn-secondary btn active" role="button" aria-pressed="true" href="/vender_reserva/{{ linha[0] }}">Vendido</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

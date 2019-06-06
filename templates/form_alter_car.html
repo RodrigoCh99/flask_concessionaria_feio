@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <style>
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        div {
+            background-color: black;
+        }
+        </style>
+    </head>
+    <body>
+        <h3>Alterar Dados do Anuncio:</h3>
+            <form action="/save_alter_car" method="post" enctype=multipart/form-data>
+
+                <img src="/static/images/{{ informacoes[7] }}" class="rounded-circle">
+                <input type="hidden" name="nome_antigo" value="{{ informacoes[7] }}"><br><br>
+
+                Modelo:<br>
+                <input type="text" name="novo_modelo" value="{{ informacoes[1] }}"><br>
+                Marca:<br>
+                <input type="text" name="nova_marca" value="{{ informacoes[2] }}"><br>
+                Ano:<br>
+                <input type="text" name="novo_ano" value="{{ informacoes[3] }}"><br>
+                preco:<br>
+                <input type="text" name="novo_preco" value="{{ informacoes[5] }}"><br>
+                Nova Imagem:<br>
+                <input type="file" name="img"/><br>
+
+
+                <input type="hidden" name="idcarro" value="{{ informacoes[0] }}">
+                <input type="submit" value="Alterar">
+            </form>
+    </body>
+</html>

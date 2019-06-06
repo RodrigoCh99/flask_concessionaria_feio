@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Alterar-funcionario</title>
+    </head>
+    <body>
+        <h3>Alterar Funcionario:</h3>
+        <form action="/save_alter_func" method="post">
+            Novo Login do Funcionario: <input type="text" name="updated_login" value="{{ informacoes[1] }}"><br><br>
+            Nova Senha do Funcionario: <input type="text" name="updated_senha" value="{{ informacoes[2] }}"><br><br>
+            <input type="hidden" name="idfuncionario" value="{{ informacoes[0] }}">
+            <input type="submit" value="Alterar">
+        </form>
+    </body>
+</html>
